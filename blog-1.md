@@ -12,8 +12,6 @@ In this blog, we will explore how Generics work in TypeScript, why they are impo
 
 ---
 
-# Generics in Reusable Components
-
 # What Are Generics?
 
 Generics are a feature in TypeScript that allows functions, classes, and interfaces to work with multiple data types while preserving type information.
@@ -21,6 +19,8 @@ Generics are a feature in TypeScript that allows functions, classes, and interfa
 A generic type acts as a placeholder that gets replaced with the actual type when the function or component is used.
 
 ---
+
+# Generics in Reusable function
 
 # Problem Without Generics
 
@@ -73,8 +73,40 @@ console.log(firstString);
 ```
 
 TypeScript automatically infers:
-
-firstNumber as number
-firstString as string
+.firstNumber as number
+.firstString as string
 
 This ensures developers get proper autocomplete support and compile-time error checking.
+
+# Generics in Reusable Components
+
+Generics are commonly used in reusable UI components.
+
+For example, a dropdown component can work with different types of data while remaining type-safe.
+
+```ts
+type DropdownProps<T> = {
+  items: T[];
+  selectItem: (item: T) => void;
+};
+
+function Dropdown<T>({ items, selectItem }: DropdownProps<T>) {
+  return (
+    <div>
+      {items.map((item, index) => (
+        <button key={index} onClick={() => selectItem(item)}>
+          Select
+        </button>
+      ))}
+    </div>
+  );
+}
+```
+
+This component can now work with:
+.Users
+.Products
+.Categories
+.Tasks
+
+while preserving accurate typing for every item.
