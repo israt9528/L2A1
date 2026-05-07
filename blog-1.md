@@ -73,8 +73,9 @@ console.log(firstString);
 ```
 
 TypeScript automatically infers:
-.firstNumber as number
-.firstString as string
+
+- firstNumber as number
+- firstString as string
 
 This ensures developers get proper autocomplete support and compile-time error checking.
 
@@ -104,9 +105,10 @@ function Dropdown<T>({ items, selectItem }: DropdownProps<T>) {
 ```
 
 This component can now work with:
-.Users
-.Products
-.Categories
-.Tasks
+
+- Users
+- Products
+- Categories
+- Tasks
 
 while preserving accurate typing for every item.
